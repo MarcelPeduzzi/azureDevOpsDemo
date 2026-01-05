@@ -38,7 +38,12 @@ public partial class MainWindow : Window
 
     private void DecimalButton_Click(object sender, RoutedEventArgs e)
     {
-        if (!DisplayTextBox.Text.Contains("."))
+        if (_isOperationPerformed)
+        {
+            DisplayTextBox.Text = "0.";
+            _isOperationPerformed = false;
+        }
+        else if (!DisplayTextBox.Text.Contains("."))
         {
             DisplayTextBox.Text += ".";
         }
